@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: 50vh;
+  width: 50vw;
+}
+.main-forms{
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+.App{
+  display: grid;
+  border: black 5px solid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+}
