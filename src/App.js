@@ -5,8 +5,8 @@ import Leftbar from './Leftbar';
 
 function App() {
   return (
-    <div className="App">
-      <Sidebar />
+    <div className="App" id='outer-container'>
+      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
       <Main className="main-main"/>
       <Leftbar /> 
     </div>

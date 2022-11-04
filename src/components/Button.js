@@ -1,18 +1,54 @@
 export default function Button() {
   return (
-    <div class="inline-flex rounded-md " role="group">
-      <button
-        type="button"
-        class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
-      >
-        Lorem
-      </button>
-      <button
-        type="button"
-        class="py-2 px-4 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
-      >
-        Ipsum
-      </button>
-    </div>
+    <>
+      <div class="flex items-center justify-center">
+        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
+          <a
+            href="#"
+            aria-current="page"
+            class="
+              rounded-l
+              px-8
+              py-2.5
+              bg-green-600
+              text-white
+              font-medium
+              text-xs
+              leading-tight
+              uppercase
+              hover:bg-green-700
+              focus:bg-green-700 focus:outline-none focus:ring-0
+              active:bg-green-900
+              transition
+              duration-150
+              ease-in-out
+            "
+          >
+            Imperial
+          </a>
+          <a
+            href="#"
+            class="
+              px-8
+              py-2.5
+              bg-green-600
+              text-white
+              font-medium
+              text-xs
+              leading-tight
+              uppercase
+              hover:bg-green-700
+              focus:bg-green-700 focus:outline-none focus:ring-0
+              active:bg-green-800
+              transition
+              duration-150
+              ease-in-out
+            "
+          >
+            Metric
+          </a>
+        </div>
+      </div>
+    </>
   );
 }
