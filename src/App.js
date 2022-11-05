@@ -5,11 +5,11 @@ import Leftbar from './Leftbar';
 
 function App() {
   return (
+    <><Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
     <div className="App" id='outer-container'>
-      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
-      <Main className="main-main"/>
-      <Leftbar /> 
-    </div>
+      <Main className="main-main" />
+      <Leftbar />
+    </div></>
   );
 }
 
