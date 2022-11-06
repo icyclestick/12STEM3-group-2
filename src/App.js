@@ -1,15 +1,17 @@
 import './App.css';
 import Main from './Main'
-import Sidebar from './Sidebar'
 import Leftbar from './Leftbar';
 
 function App() {
   return (
-    <><Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
     <div className="App" id='outer-container'>
-      <Main className="main-main" />
+      <header className='grid-col-span-2 header'>
+            <h1 className='main-title'>Calorie Calculator</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </header>
+      <Main />
       <Leftbar />
-    </div></>
+    </div>
   );
 }
 

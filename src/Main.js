@@ -4,16 +4,12 @@ import './App.css'
 
 export default function Main(){
     return (
-    <div className='outermain'>
-            <h1 className='main-h1'>Calorie Calculator</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <div className='main'>
+    <main>
+        <div className='main-forms grid-row-start-2'>
             <Buttons />
-        <main className='main-forms'>
             <Forms />
-        </main>
         </div>
-    </div>
+    </main>
         
     )
 }

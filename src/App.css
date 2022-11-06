@@ -6,41 +6,6 @@ $pale-spring-bud: rgba(233, 237, 201, 1);
 $cornsilk: rgba(254, 250, 224, 1);
 $earth-yellow: rgba(221, 161, 94, 1);
 $liver-dogs: rgba(188, 108, 37, 1); */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-p {
-  font-family: 'Montserrat', sans-serif;
-}
-.main{
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  align-items: flex-start;
-  justify-content: center;
-  height: min-content;
-  padding: 4em;
-  background-color: rgba(40, 54, 24, 1);
-}
-.main-h1{
-  font-weight: bold;
-  font-size: 50px;
-  line-height: 60.51px;
-  color: rgba(233, 237, 201, 1);
-}
-.main-forms{
-  width: 100%;
-}
-.App{
-  display: flex;
-  justify-content: center;
-  gap: 2em;
-  min-height: 100vh;
-  align-items: center;
-}
 #page-wrap {
   text-align: center;
   /* Prevent sidebar from showing a scrollbar on page */
@@ -96,17 +61,71 @@ p {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.App{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 6rem;
+  padding-left: 2rem;
+  align-items: center;
+  background-color: #606C38;
+}
+.grid-col-span-2{
+  grid-column: span 2;
+}
+.main-title{
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 59px;
+  color: #E9EDC9;
+}
+p{
+  font-family: 'Montserrat';
+  text-align: center;
+  word-wrap: break-word;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #E9EDC9;
+  margin-bottom: 1em;
+}
+.header{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-start;
+  margin-left: 5em;
+}
+/* main{
+  height: 100%;
+} */
+.main-forms{
+  display: flex;
+  flex-direction: column;
+  background-color: #E9EDC9;
+  padding: 3em;
+  border-radius: 50px;
+  gap: 3em;
+  height: max-content;
+}
 .leftbar{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #E9EDC9;
-  height: min-content;
+  padding: 1em;
+  border-radius: 50px;
+  height: 100%;
 }
 .leftbar-img{
-  width: 20rem;
-}
-.sidebar{
-  background-color: #E9EDC9;
+  width: 30rem;
 }

@@ -9,6 +9,5 @@ export default function Button() {
     Settings
   </button>
 </div>
-
   );
 }
