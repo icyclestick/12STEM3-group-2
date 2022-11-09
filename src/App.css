@@ -116,7 +116,7 @@ p{
   padding: 3em;
   border-radius: 50px;
   gap: 3em;
-  height: max-content;
+  height: 100%;
 }
 .leftbar{
   display: flex;
@@ -127,5 +127,6 @@ p{
   height: 100%;
 }
 .leftbar-img{
-  width: 30rem;
+  max-width: 312px;
+  max-height: 312px;
 }

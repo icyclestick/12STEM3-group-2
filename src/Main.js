@@ -6,7 +6,7 @@ export default function Main(){
     return (
     <main>
         <div className='main-forms grid-row-start-2'>
-            <Buttons />
+            <Buttons/>
             <Forms />
         </div>
     </main>

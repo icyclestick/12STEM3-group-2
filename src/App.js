@@ -3,6 +3,7 @@ import Main from './Main'
 import Leftbar from './Leftbar';
 
 function App() {
+
   return (
     <div className="App" id='outer-container'>
       <header className='grid-col-span-2 header'>
