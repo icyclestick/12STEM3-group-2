@@ -32,7 +32,7 @@ $liver-dogs: rgba(188, 108, 37, 1); */
 }
 
 .bm-burger-bars {
-  background: #373a47;
+  background-color: rgb(249 250 251);
 }
 
 .bm-cross-button {
@@ -45,13 +45,13 @@ $liver-dogs: rgba(188, 108, 37, 1); */
 }
 
 .bm-menu {
-  background: #373a47;
+  background-color: rgb(249 250 251);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 .bm-morph-shape {
-  fill: #373a47;
+  fill: rgb(249 250 251);
 }
 
 .bm-item-list {
@@ -113,7 +113,7 @@ p{
   display: flex;
   flex-direction: column;
   background-color: #E9EDC9;
-  padding: 3em;
+  padding: 4em;
   border-radius: 50px;
   gap: 3em;
   height: 100%;
@@ -122,7 +122,7 @@ p{
   display: flex;
   flex-direction: column;
   background-color: #E9EDC9;
-  padding: 1em;
+  padding: 2em;
   border-radius: 50px;
   height: 100%;
 }
