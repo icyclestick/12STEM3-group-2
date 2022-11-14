@@ -22,11 +22,12 @@ export default function Forms(props){
 
       function handleSubmit(event){
         event.preventDefault()
+
       }
 
     return (
       
-<form>
+<form onSubmit={handleSubmit}>
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
             <label for="tag" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tag</label>
