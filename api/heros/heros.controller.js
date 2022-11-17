@@ -2,8 +2,10 @@ var Heros = require('./heros.dao');
 
 exports.createHero = function (req, res, next) {
     var hero = {
-        name: req.body.name,
-        description: req.body.description
+        tag: req.body.tag,
+        type: req.body.type,
+        weight: req.body.weight,
+        targetWeight: req.body.targetWeight
     };
 
     Heros.create(hero, function(err, hero) {
@@ -46,8 +48,10 @@ exports.getHero = function(req, res, next) {
 
 exports.updateHero = function(req, res, next) {
     var hero = {
-        name: req.body.name,
-        description: req.body.description
+        tag: req.body.tag,
+        type: req.body.type,
+        weight: req.body.weight,
+        targetWeight: req.body.targetWeight
     }
     Heros.update({_id: req.params.id}, hero, function(err, hero) {
         if(err) {

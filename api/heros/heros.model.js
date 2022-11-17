@@ -1,12 +1,22 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var herosSchema = new Schema({
-    name :{
+    tag :{
         type: String,
         unique : false,
         required : true
     },
-    description : {
+    type : {
+        type: String,
+        unique : false,
+        required : true
+    },
+    weight : {
+        type: String,
+        unique : false,
+        required : true
+    },
+    targetWeight : {
         type: String,
         unique : false,
         required : true
