@@ -1,9 +1,16 @@
 import {slide as Menu} from 'react-burger-menu'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
 import './App.css'
 
 export default function Sidebar(){
     return(
-        <div className='sidebar'>
+    <div className='sidebar'>
         <Menu>
             
             <aside class="w-64" aria-label="Sidebar">
@@ -46,7 +53,7 @@ export default function Sidebar(){
             </aside>
             
 
-    </Menu>
+        </Menu>
     </div>
     )
 }

@@ -4,22 +4,22 @@ var herosSchema = new Schema({
     tag :{
         type: String,
         unique : false,
-        required : true
+        // required : true
     },
     type : {
         type: String,
         unique : false,
-        required : true
+        // required : true
     },
     weight : {
-        type: String,
+        type: Number,
         unique : false,
-        required : true
+        // required : true
     },
     targetWeight : {
-        type: String,
+        type: Number,
         unique : false,
-        required : true
+        // required : true
     }
 }, {
     timestamps: true
