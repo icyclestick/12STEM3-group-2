@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import axios from 'axios';
-export default function Forms(props){
+export default function CreateUser(props){
 
     const [formData, setFormData] = useState({
         tag: "",
