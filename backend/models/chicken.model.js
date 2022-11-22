@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const chickenSchema = new Schema({
+    username: { type: String, required: true },
     tag: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength: 5
     },
     type: {
         type: String,
@@ -21,7 +21,8 @@ const chickenSchema = new Schema({
     targetWeight: {
         type: Number,
         required: true
-    }
+    },
+    date: { type: Date, required: true },
 }, {
     timestamps: true,
 })

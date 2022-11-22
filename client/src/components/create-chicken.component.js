@@ -89,7 +89,6 @@ export default class CreateChicken extends Component{
     .catch((error) => {
       console.log(error);
     })
-    
   }
 
   render() {
@@ -118,11 +117,11 @@ export default class CreateChicken extends Component{
                 </div>
                 <div>
                     <label htmlFor="weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Weight</label>
-                    <input pattern="[0-9]{1-5}[kg]" name="weight" onChange={this.onChangeWeight} value={this.state.weight}type="text" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="15kg" required=""/>
+                    <input name="weight" onChange={this.onChangeWeight} value={this.state.weight}type="text" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="15kg" required=""/>
                 </div>  
                 <div>
                     <label htmlFor="target_weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Target Weight</label>
-                    <input pattern="[0-9]{1-5}[kg]" name="targetWeight" onChange={this.onChangeTargetWeight} value={this.state.targetWeight}type="text" id="target_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required=""/>
+                    <input name="targetWeight" onChange={this.onChangeTargetWeight} value={this.state.targetWeight}type="text" id="target_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required=""/>
                 </div>
                 <div>
                   <DatePicker 
