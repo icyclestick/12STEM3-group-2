@@ -8,16 +8,20 @@ router.route('/get').get((req, res) => {
 })
 
 router.route('/add').post((req, res) => {
+    const username = req.body.username;
     const tag = req.body.tag;
     const type = req.body.type
     const weight = Number(req.body.weight)
     const targetWeight = Number(req.body.targetWeight)
+    const date = Date.parse(req.body.date);
 
     const newChicken = new Chicken({
+        username,
         tag,
         type,
         weight,
         targetWeight,
+        date
     })
 
     newChicken.save()
