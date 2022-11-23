@@ -1,7 +1,7 @@
 const router = require('express').Router()
 let Chicken = require('../models/chicken.model')
 
-router.route('/get').get((req, res) => {
+router.route('/').get((req, res) => {
     Chicken.find()
     .then(chicken => res.json(chicken))
     .catch(err => res.status(400).json('Error: ' + err))

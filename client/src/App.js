@@ -15,7 +15,7 @@ function App() {
             <Sidebar />
             <Routes>
                 <Route path="/" exact element={<HomePage/>}></Route>
-                <Route path="/get" element={<ChickenList />}></Route>
+                <Route path="/list" element={<ChickenList />}></Route>
                 <Route path="/edit/:id" element={<EditChicken />}></Route>
                 <Route path="/create" element={<CreateChicken />}></Route>
                 <Route path="/user" element={<CreateUser />}></Route>
