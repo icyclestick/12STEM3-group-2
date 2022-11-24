@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+/* $dark-olive-green: rgba(96, 108, 56, 1);
+$kombu-green: rgba(40, 54, 24, 1);
+$pale-spring-bud: rgba(233, 237, 201, 1);
+$cornsilk: rgba(254, 250, 224, 1);
+$earth-yellow: rgba(221, 161, 94, 1);
+$liver-dogs: rgba(188, 108, 37, 1); */
+
+:root {
+  --clr-green-400: rgba(96, 108, 56, 1);
+  --clr-green-600: rgba(40, 54, 24, 1);
+  --clr-white-bud: rgba(233, 237, 201, 1);
+  --clr-white-corn:rgba(254, 250, 224, 1);
+
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-body: 'Montserrat', sans-serif;
+}
+#page-wrap {
+  text-align: center;
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.1s;
+}
+
+.bm-item:hover {
+  color: white;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+.bm-burger-bars {
+  background-color: rgb(249 250 251);
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu {
+  background-color: rgb(249 250 251);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: rgb(249 250 251);
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+.title-container{
+  width: 100%;
+  height: 30vh;
+  background-color: var(--clr-green-600);
+}
+.img-container{
+  width: 100%;
+  height: 70vh;
+}
+.chicken-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.form-components{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-green-600);
+}
+@media (min-width: 900px){
+  .home{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .title-container{
+    min-height: 100vh;
+    width: 40%;
+    background-color: var(--clr-green-600);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10em;
+    padding: 0 2em;
+  }
+  .img-container{
+    width: 60%;
+  }
+  .chicken-img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  .home-title{
+    margin-top: 30%;
+    font-family: var(--ff-primary);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 117px;
+    color: white;
+  }
+  .form-components{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-green-600);
+  
+  }
+}
