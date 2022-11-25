@@ -11,4 +11,12 @@ export const getListOfChickens = async () => {
 
 export const getChickenById = async (id) => {
   // ## TODO Call to web api
+  if(id){
+    try {
+      const response = await axios.get(id)
+      return response.data
+    } catch(error) {
+      throw error
+    }
+  }
 };

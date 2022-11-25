@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getListOfChickens } from "../api"
+import { Table } from "../components/Table"
 export const Chicken = () => {
     const [chickenList, setChickenList] = useState({ chicken: [] })
     
@@ -45,13 +46,7 @@ export const Chicken = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {chickenList.chicken?.map(d => (
-                            <tr key={d._id}>
-                                <td>{d.username}</td>
-                            </tr>
-                        ))}
-                    </tbody>
+                    <Table chickenList={chickenList}/>
                 </table>
             </div>
         </div>
