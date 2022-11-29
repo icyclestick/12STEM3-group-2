@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { getListOfChickens } from "../api"
 import { Table } from "../components/Table"
 export const Chicken = () => {
@@ -16,8 +15,6 @@ export const Chicken = () => {
     }, [])
     
     return <>
-        <Link to={"create"}>CREATE</Link>
-        <Link to={"/chicken/edit/" + 1}>EDIT</Link>
         <div>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -46,7 +43,7 @@ export const Chicken = () => {
                             </th>
                         </tr>
                     </thead>
-                    <Table chickenList={chickenList}/>
+                    <Table chickenList={chickenList} key={chickenList._id}/>
                 </table>
             </div>
         </div>
