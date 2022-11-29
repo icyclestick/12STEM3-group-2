@@ -8,7 +8,6 @@ const chickenSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        trim: true,
     },
     type: {
         type: String,
