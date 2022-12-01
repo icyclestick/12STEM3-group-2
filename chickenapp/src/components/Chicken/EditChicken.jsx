@@ -13,26 +13,24 @@ export const EditChicken = () => {
         date: new Date(),
         users: []
     })
-    const {id} = useParams();
-    console.log(id)
+    const { id } = useParams();
     // ## TODO Call to web api and put supply the input elements
     // format(parseISO('2020-01-03'), 'MMM d, yyyy');
-   useEffect(() => {
-            axios.get("http://localhost:5000/chicken/"+ id)
-            getChickenById().then(response => {
+    useEffect(() => {
+        getChickenById(id).then(response => {
             setEditChicken({
-                username: response,
-                tag: response,
-                type: response,
-                weight: response,
-                targetWeight: response,
-                date: new Date(response),
-                users: [response]
+                username: response.username,
+                tag: response.tag,
+                type: response.tag,
+                weight: response.weight,
+                targetWeight: response.targetWeight,
+                date: Date(response.date),
+                users: [response.username]
             })
         }).catch(error => {
             console.log(error)
         })
-    },[])
+    }, [id])
     function handleChange(event) {
         // let eName, eValue;
         // if (event.target) {
@@ -50,9 +48,9 @@ export const EditChicken = () => {
         //     return {
         //         ...prev,
         //         [eName]: eValue
-        //     }
+        //     } 
         // })
-        const {name, value} = event.target
+        const { name, value } = event.target
         setEditChicken(prev => {
             return {
                 ...prev,
@@ -63,7 +61,7 @@ export const EditChicken = () => {
     function onChangeDate(date) {
         console.log(date.toISOString());
         setEditChicken({ date: date })
-      }
+    }
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -117,7 +115,7 @@ export const EditChicken = () => {
                         onChange={(date) => onChangeDate(date)}
                         name="date"
                         value={editChicken.date}
-                        //https://github.com/date-fns/date-fns/issues/376 error in date-fns
+                    //https://github.com/date-fns/date-fns/issues/376 error in date-fns
                     />
                 </div>
                 <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
