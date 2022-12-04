@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from 'axios'
+import { createUserApi } from '../../api'
 export const CreateUser = () => {
     const [createUser, setCreateUser] = useState({
         username: ''
@@ -16,8 +17,13 @@ export const CreateUser = () => {
         }
         console.log(user)
 
-        axios.post(`http://localhost:5000/users/add`, user)
-            .then(res => console.log(res.data))
+        // axios.post(`http://localhost:5000/users/add`, user)
+        //     .then(res => console.log(res.data))
+        // setCreateUser({
+        //     username: ''
+        // })
+
+        createUserApi(user).then(response => console.log)
         setCreateUser({
             username: ''
         })

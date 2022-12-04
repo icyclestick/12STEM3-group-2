@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { createChicken } from "../../api"
 
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
@@ -12,9 +13,9 @@ export const CreateChicken = () => {
         weight: '',
         targetWeight: '',
         date: new Date(),
-        users: []
+        users: [],
+        calorieAte: '',
     })
-
     useEffect(() => {
         axios.get('http://localhost:5000/users')
             .then(response => {
@@ -28,13 +29,12 @@ export const CreateChicken = () => {
             .catch((error) => {
                 console.log(error)
             })
-        console.log(createdChicken)
     }, [])
     function handleChange(event) {
         let eName, eValue;
         if (event.target) {
             const { name, value } = event.target
-            console.log(name, value)
+            // console.log(name, value)
             eName = name
             eValue = value
         }
@@ -67,12 +67,14 @@ export const CreateChicken = () => {
             weight: createdChicken.weight,
             targetWeight: createdChicken.targetWeight,
             username: createdChicken.username,
-            date: createdChicken.date
+            date: createdChicken.date,
+            calorieAte: createdChicken.calorieAte
         }
         console.log(chickenData)
-        axios.post('http://localhost:5000/chicken/add', chickenData)
-            .then(res => console.log(res.data))
-            .catch(error => console.log(error))
+        // axios.post('http://localhost:5000/chicken/add', chickenData)
+        //     .then(res => console.log(res.data))
+        //     .catch(error => console.log(error))
+        createChicken(chickenData).then(response => console.log(response))
     }
     return <><div className="form-components">
         <h3 className="calculator-title">Create Chicken!</h3>
@@ -104,6 +106,10 @@ export const CreateChicken = () => {
                 <div>
                     <label htmlFor="target_weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Target Weight</label>
                     <input name="targetWeight" onChange={handleChange} value={createdChicken.targetWeight} type="text" id="target_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
+                </div>
+                <div>
+                    <label htmlFor="calorieAte" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Calories Ate</label>
+                    <input name="calorieAte" onChange={handleChange} value={createdChicken.calorieAte} type="text" id="calorie_ate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
                 </div>
                 <div>
                     <DatePicker

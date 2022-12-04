@@ -90,6 +90,22 @@ $liver-dogs: rgba(188, 108, 37, 1); */
     height: 100%;
     object-fit: cover;
 }
+.home-title{
+  font-family: var(--ff-primary);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 117px;
+    color: white;
+    width: 100%;
+    padding-top: 1em;
+    text-align: center;
+}
+.sign-in-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .form-components{
   display: flex;
   height: 100vh;

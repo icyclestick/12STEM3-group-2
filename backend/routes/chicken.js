@@ -14,6 +14,7 @@ router.route("/add").post((req, res) => {
   const weight = Number(req.body.weight);
   const targetWeight = Number(req.body.targetWeight);
   const date = Date.parse(req.body.date);
+  const calorieAte = req.body.calorieAte;
 
   const newChicken = new Chicken({
     username,
@@ -22,6 +23,7 @@ router.route("/add").post((req, res) => {
     weight,
     targetWeight,
     date,
+    calorieAte,
   });
 
   newChicken
@@ -49,6 +51,7 @@ router.route("/update/:id").post((req, res) => {
       chicken.type = req.body.type;
       chicken.weight = req.body.weight;
       chicken.targetWeight = req.body.targetWeight;
+      chicken.calorieAte = req.body.calorieAte;
 
       chicken
         .save()

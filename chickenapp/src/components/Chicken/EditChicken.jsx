@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { getChickenById } from "../../api"
+import { editChickenData } from "../../api";
 import DatePicker from "react-datepicker"
 export const EditChicken = () => {
     const [editChicken, setEditChicken] = useState({
@@ -11,45 +11,28 @@ export const EditChicken = () => {
         weight: '',
         targetWeight: '',
         date: new Date(),
-        users: []
+        users: [],
+        calorieAte: ''
     })
     const { id } = useParams();
-    // ## TODO Call to web api and put supply the input elements
-    // format(parseISO('2020-01-03'), 'MMM d, yyyy');
     useEffect(() => {
         getChickenById(id).then(response => {
             setEditChicken({
                 username: response.username,
                 tag: response.tag,
-                type: response.tag,
+                type: response.type,
                 weight: response.weight,
                 targetWeight: response.targetWeight,
                 date: Date(response.date),
-                users: [response.username]
+                users: [response.username],
+                caloriesAte: response.caloriesAte
             })
-        }).catch(error => {
-            console.log(error)
         })
+            .catch(error => {
+                console.log(error)
+            })
     }, [id])
     function handleChange(event) {
-        // let eName, eValue;
-        // if (event.target) {
-        //     const { name, value } = event.target
-        //     console.log(name, value)
-        //     eName = name
-        //     eValue = value
-        // }
-        // else {
-        //     eName = "date"
-        //     eValue = event
-        // }
-        // //console.log(evName,evValue)
-        // setEditChicken(prev => {
-        //     return {
-        //         ...prev,
-        //         [eName]: eValue
-        //     } 
-        // })
         const { name, value } = event.target
         setEditChicken(prev => {
             return {
@@ -65,17 +48,18 @@ export const EditChicken = () => {
 
     function handleSubmit(event) {
         event.preventDefault()
-        const chickenData = {
+        const newchickenData = {
             tag: editChicken.tag,
             type: editChicken.type,
             weight: editChicken.weight,
             targetWeight: editChicken.targetWeight,
             username: editChicken.username,
-            date: editChicken.date
+            date: editChicken.date,
+            caloriesAte: editChicken.calorieAte
         }
-        console.log(chickenData)
-        axios.post('http://localhost:5000/chicken/add', chickenData)
-            .then(res => console.log(res.data))
+        console.log(newchickenData)
+        editChickenData(id, newchickenData)
+            .then(response => console.log(response.data))
             .catch(error => console.log(error))
     }
     return <><div className="form-components">
@@ -108,6 +92,10 @@ export const EditChicken = () => {
                 <div>
                     <label htmlFor="target_weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Target Weight</label>
                     <input name="targetWeight" onChange={handleChange} value={editChicken.targetWeight} type="text" id="target_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
+                </div>
+                <div>
+                    <label htmlFor="calorieAte" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Calories Ate</label>
+                    <input name="calorieAte" onChange={handleChange} value={editChicken.calorieAte} type="text" id="calorie_ate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
                 </div>
                 <div>
                     <DatePicker
