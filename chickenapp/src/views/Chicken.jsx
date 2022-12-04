@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { getListOfChickens } from "../api"
+import { useEffect, useState, } from "react";
+import { deleteChickenApi, getListOfChickens } from "../api"
 import { Table } from "../components/Table"
 export const Chicken = () => {
     const [chickenList, setChickenList] = useState({ chicken: [] })
-    
+
+
     useEffect(() => {
         getListOfChickens().then(response => {
             setChickenList({
@@ -13,7 +14,14 @@ export const Chicken = () => {
             console.log(error)
         })
     }, [])
-    
+
+    function deleteChicken(id) {
+        deleteChickenApi(id).then((response) => console.log(response.data))
+        setChickenList({
+            chicken: chickenList.chicken.filter((el) => el._id !== id)
+        })
+    }
+
     return <>
         <div>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -39,13 +47,18 @@ export const Chicken = () => {
                                 Date
                             </th>
                             <th scope="col" class="py-3 px-6">
+                                Calories Eaten
+                            </th>
+                            <th scope="col" class="py-3 px-6">
                                 Actions
                             </th>
                         </tr>
                     </thead>
-                    <Table chickenList={chickenList} key={chickenList._id}/>
+                    <Table chickenList={chickenList} key={chickenList._id} deleteChicken={deleteChicken} />
                 </table>
             </div>
         </div>
     </>
+
+
 }
