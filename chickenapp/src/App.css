@@ -108,7 +108,9 @@ $liver-dogs: rgba(188, 108, 37, 1); */
 }
 .form-components{
   display: flex;
-  height: 100vh;
+  flex-direction: column;
+  flex: 1;
+  height: 150vh;
   align-items: center;
   justify-content: center;
   background-color: var(--clr-green-600);

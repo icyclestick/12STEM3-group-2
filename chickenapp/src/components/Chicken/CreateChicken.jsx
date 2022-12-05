@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { createChicken } from "../../api"
-
+import '../../App.css'
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
         username: '',
@@ -77,7 +77,7 @@ export const CreateChicken = () => {
         createChicken(chickenData).then(response => console.log(response))
     }
     return <><div className="form-components">
-        <h3 className="calculator-title">Create Chicken!</h3>
+        <h3 className="calculator-title" class="text-4xl font-extrabold dark:text-white">Create Chicken!</h3>
         <form onSubmit={handleSubmit}>
             <label htmlFor="user" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username: </label>
             <select className="form-control" name="user" required value={createdChicken.selected} onChange={handleChange} class="px-5 py-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
