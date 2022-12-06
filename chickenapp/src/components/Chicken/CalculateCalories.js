@@ -1,3 +1,3 @@
-export function calculateCalories(num1, num2) {
-  return num1 + num2;
+export const calculateCalories = (num1, num2) => {
+  return num1 + num2
 }
