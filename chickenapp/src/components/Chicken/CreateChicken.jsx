@@ -5,6 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { createChicken } from "../../api"
 import '../../App.css'
 import { handleCalculation } from './CalculateCalories';
+import moment from 'moment'
+
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
         username: '',
@@ -12,7 +14,7 @@ export const CreateChicken = () => {
         type: '',
         weight: '',
         targetWeight: '',
-        date: new Date(),
+        date: moment().toDate('MMMM Do YYYY, h:mm:ss a'),
         users: [],
         calorieAte: '',
     })
@@ -24,6 +26,10 @@ export const CreateChicken = () => {
                         users: response.data.map(user => user.username),
                         username: response.data[0].username
                     })
+                    // setCreatedChicken({
+                    //     users: response.data.map(user => user.username),
+                    //     username: response.data[0].username
+                    // })
                 }
             })
             .catch((error) => {
@@ -115,10 +121,11 @@ export const CreateChicken = () => {
                     <input name="calorieAte" onChange={handleChange} value={createdChicken.calorieAte} type="text" id="calorie_ate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
                 </div>
                 <div>
-                    <label htmlFor="date"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date</label>
+                    <label htmlFor="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date</label>
                     <DatePicker
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
                         selected={createdChicken.date}
+                        placeholderText="Select a date other than today or yesterday"
                         onChange={(date) => handleChange(date)}
                         name="date"
                         value={createdChicken.date}
