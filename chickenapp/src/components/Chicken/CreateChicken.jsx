@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { createChicken } from "../../api"
 import '../../App.css'
+import { handleCalculation } from './CalculateCalories';
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
         username: '',
@@ -75,6 +76,9 @@ export const CreateChicken = () => {
         //     .then(res => console.log(res.data))
         //     .catch(error => console.log(error))
         createChicken(chickenData).then(response => console.log(response))
+
+        const result = handleCalculation(chickenData)
+        alert(result)
     }
     return <><div className="form-components">
         <h3 className="calculator-title" class="text-4xl font-extrabold dark:text-white">Create Chicken!</h3>
