@@ -1,4 +1,4 @@
 export const handleCalculation = (chickenData) => {
-  const result = chickenData.weight - chickenData.targetWeight;
+  const result = chickenData.initWeight - chickenData.finalWeight;
   return result;
 };

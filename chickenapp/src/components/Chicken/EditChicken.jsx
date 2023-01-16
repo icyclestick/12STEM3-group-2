@@ -8,8 +8,8 @@ export const EditChicken = () => {
         username: '',
         tag: '',
         type: '',
-        weight: '',
-        targetWeight: '',
+        initWeight: '',
+        finalWeight: '',
         date: new Date(),
         users: [],
         calorieAte: ''
@@ -21,11 +21,11 @@ export const EditChicken = () => {
                 username: response.username,
                 tag: response.tag,
                 type: response.type,
-                weight: response.weight,
-                targetWeight: response.targetWeight,
+                initWeight: response.initWeight,
+                finalWeight: response.finalWeight,
                 date: Date(response.date),
                 users: [response.username],
-                caloriesAte: response.caloriesAte
+                calorieAte: response.calorieAte
             })
         })
             .catch(error => {
@@ -51,11 +51,11 @@ export const EditChicken = () => {
         const newchickenData = {
             tag: editChicken.tag,
             type: editChicken.type,
-            weight: editChicken.weight,
-            targetWeight: editChicken.targetWeight,
+            initWeight: editChicken.initWeight,
+            finalWeight: editChicken.finalWeight,
             username: editChicken.username,
             date: editChicken.date,
-            caloriesAte: editChicken.calorieAte
+            calorieAte: editChicken.calorieAte
         }
         console.log(newchickenData)
         editChickenData(id, newchickenData)
@@ -86,18 +86,19 @@ export const EditChicken = () => {
                     <input name="type" onChange={handleChange} value={editChicken.type} type="text" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Darag Chicken" required="" />
                 </div>
                 <div>
-                    <label htmlFor="weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Weight</label>
-                    <input name="weight" onChange={handleChange} value={editChicken.weight} type="text" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="15kg" required="" />
+                    <label htmlFor="init_weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Initial Weight</label>
+                    <input name="initWeight" onChange={handleChange} value={editChicken.initWeight} type="text" id="init_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="15kg" required="" />
                 </div>
                 <div>
-                    <label htmlFor="target_weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Target Weight</label>
-                    <input name="targetWeight" onChange={handleChange} value={editChicken.targetWeight} type="text" id="target_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
+                    <label htmlFor="target_weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Final Weight</label>
+                    <input name="finalWeight" onChange={handleChange} value={editChicken.finalWeight} type="text" id="target_weight" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
                 </div>
                 <div>
                     <label htmlFor="calorieAte" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Calories Ate</label>
                     <input name="calorieAte" onChange={handleChange} value={editChicken.calorieAte} type="text" id="calorie_ate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="20kg" required="" />
                 </div>
                 <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date</label>
                     <DatePicker
                         selected={new Date(editChicken.date)}
                         onChange={(date) => onChangeDate(date)}

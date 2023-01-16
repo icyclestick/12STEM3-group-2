@@ -6,8 +6,8 @@ export const Table = (props) => {
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{d.username}</th>
                 <td class="py-4 px-6">{d.tag}</td>
                 <td class="py-4 px-6">{d.type}</td>
-                <td class="py-4 px-6">{d.weight}</td>
-                <td class="py-4 px-6">{d.targetWeight}</td>
+                <td class="py-4 px-6">{d.initWeight}</td>
+                <td class="py-4 px-6">{d.finalWeight}</td>
                 <td class="py-4 px-6">{d.date}</td>
                 <td class="py-4 px-6">{d.calorieAte}</td>
                 {/* <Link to={"create"} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">CREATE</Link> */}

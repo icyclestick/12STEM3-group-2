@@ -23,7 +23,7 @@ export const Chicken = () => {
     }
 
     return <>
-        <div>
+        <div className="chicken-list">
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -38,10 +38,10 @@ export const Chicken = () => {
                                 Type
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Weight
+                                Initial Weight
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Target Weight
+                                Final Weight
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Date

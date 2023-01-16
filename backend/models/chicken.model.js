@@ -14,11 +14,11 @@ const chickenSchema = new Schema(
       type: String,
       required: true,
     },
-    weight: {
+    initWeight: {
       type: Number,
       required: true,
     },
-    targetWeight: {
+    finalWeight: {
       type: Number,
       required: true,
     },

@@ -11,8 +11,8 @@ router.route("/add").post((req, res) => {
   const username = req.body.username;
   const tag = req.body.tag;
   const type = req.body.type;
-  const weight = Number(req.body.weight);
-  const targetWeight = Number(req.body.targetWeight);
+  const initWeight = Number(req.body.initWeight);
+  const finalWeight = Number(req.body.finalWeight);
   const date = Date.parse(req.body.date);
   const calorieAte = req.body.calorieAte;
 
@@ -20,8 +20,8 @@ router.route("/add").post((req, res) => {
     username,
     tag,
     type,
-    weight,
-    targetWeight,
+    initWeight,
+    finalWeight,
     date,
     calorieAte,
   });
@@ -49,8 +49,8 @@ router.route("/update/:id").post((req, res) => {
     .then((chicken) => {
       chicken.tag = req.body.tag;
       chicken.type = req.body.type;
-      chicken.weight = req.body.weight;
-      chicken.targetWeight = req.body.targetWeight;
+      chicken.initWeight = req.body.initWeight;
+      chicken.finalWeight = req.body.finalWeight;
       chicken.calorieAte = req.body.calorieAte;
 
       chicken
