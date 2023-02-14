@@ -6,7 +6,9 @@ $pale-spring-bud: rgba(233, 237, 201, 1);
 $cornsilk: rgba(254, 250, 224, 1);
 $earth-yellow: rgba(221, 161, 94, 1);
 $liver-dogs: rgba(188, 108, 37, 1); */
-
+body{
+  background-color: var(--clr-green-600);
+}
 :root {
   --clr-green-400: rgba(96, 108, 56, 1);
   --clr-green-600: rgba(40, 54, 24, 1);
@@ -152,6 +154,9 @@ $liver-dogs: rgba(188, 108, 37, 1); */
     font-size: 6rem;
     line-height: 117px;
     color: white;
+    background-color: var(--clr-green-400);
+    border-radius: 1rem;
+    padding: 1rem;
   }
   .form-components{
     display: flex;
