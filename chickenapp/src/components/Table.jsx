@@ -10,6 +10,9 @@ export const Table = (props) => {
                 <td class="py-4 px-6">{d.finalWeight}</td>
                 <td class="py-4 px-6">{d.date}</td>
                 <td class="py-4 px-6">{d.calorieAte}</td>
+                <td>
+                    <img src={d.qrCode} alt="qrCode" />
+                </td>
                 {/* <Link to={"create"} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">CREATE</Link> */}
                 <div class='py-4 px-6'>
                     <Link to={"/chicken/update/" + d._id} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">EDIT</Link>

@@ -15,6 +15,7 @@ router.route("/add").post((req, res) => {
   const finalWeight = Number(req.body.finalWeight);
   const date = Date.parse(req.body.date);
   const calorieAte = req.body.calorieAte;
+  const qrCode = req.body.qrCode;
 
   const newChicken = new Chicken({
     username,
@@ -24,6 +25,7 @@ router.route("/add").post((req, res) => {
     finalWeight,
     date,
     calorieAte,
+    qrCode,
   });
 
   newChicken
@@ -52,6 +54,7 @@ router.route("/update/:id").post((req, res) => {
       chicken.initWeight = req.body.initWeight;
       chicken.finalWeight = req.body.finalWeight;
       chicken.calorieAte = req.body.calorieAte;
+      chicken.qrCode = req.body.qrCode;
 
       chicken
         .save()

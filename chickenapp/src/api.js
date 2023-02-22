@@ -1,4 +1,5 @@
 import axios from "axios";
+import QRCode from "qrcode";
 
 export const createChicken = async (chickenData) => {
   try {
@@ -59,5 +60,14 @@ export const createUserApi = async (user) => {
     return response.data;
   } catch (error) {
     throw error;
+  }
+};
+
+export const generateQrCode = async (createdChicken, setImageUrl) => {
+  try {
+    const response = await QRCode.toDataURL(createdChicken.tag);
+    setImageUrl(response);
+  } catch (error) {
+    console.log(error);
   }
 };

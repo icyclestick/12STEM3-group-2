@@ -6,6 +6,7 @@ import { createChicken } from "../../api"
 import '../../App.css'
 import { handleCalculation } from './CalculateCalories';
 import moment from 'moment'
+import { generateQrCode } from '../../api';
 
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
@@ -17,7 +18,11 @@ export const CreateChicken = () => {
         date: moment().toDate('MMMM Do YYYY, h:mm:ss a'),
         users: [],
         calorieAte: '',
+        qrCode: ''
     })
+
+    const [imageUrl, setImageUrl] = useState('');
+
     useEffect(() => {
         axios.get('http://localhost:5000/users')
             .then(response => {
@@ -74,7 +79,8 @@ export const CreateChicken = () => {
             finalWeight: createdChicken.finalWeight,
             username: createdChicken.username,
             date: createdChicken.date,
-            calorieAte: createdChicken.calorieAte
+            calorieAte: createdChicken.calorieAte,
+            qrCode: imageUrl
         }
         console.log(chickenData)
         // axios.post('http://localhost:5000/chicken/add', chickenData)
@@ -135,6 +141,10 @@ export const CreateChicken = () => {
                     <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
                 </div>
             </form>
-
+            <button onClick={() => generateQrCode(createdChicken, setImageUrl)} class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">QR Code</button>
+            {imageUrl ? (
+                <a href={imageUrl} download>
+                    <img src={imageUrl} alt="img" />
+                </a>) : null}
         </div></div></>
 }

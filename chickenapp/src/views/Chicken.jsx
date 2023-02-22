@@ -50,6 +50,9 @@ export const Chicken = () => {
                                 Calories Eaten
                             </th>
                             <th scope="col" class="py-3 px-6">
+                                QrCode
+                            </th>
+                            <th scope="col" class="py-3 px-6">
                                 Actions
                             </th>
                         </tr>

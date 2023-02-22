@@ -24,6 +24,7 @@ const chickenSchema = new Schema(
     },
     date: { type: Date, required: true },
     calorieAte: { type: Number, required: true },
+    qrCode: { type: String, required: true },
   },
   {
     timestamps: true,
