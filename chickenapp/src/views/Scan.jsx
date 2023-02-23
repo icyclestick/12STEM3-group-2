@@ -1,68 +1,53 @@
-import { useState } from "react";
-import QrScanner from 'qr-scanner';
+import React, { useState, useEffect } from 'react';
+import { QrReader } from 'react-qr-reader';
+import { getListOfChickens } from "../api"
+import { getChickenByQr } from "../api"
 
 export const Scan = () => {
 
-    const qrScanner = new QrScanner(
-        result => console.log('decoded qr code:', result),
-    )
-    return <>
-        <h1>Scan from WebCam:</h1>
-        <div id="video-container">
-            <video id="qr-video"></video>
-        </div>
-        <div>
-            <label>
-                Highlight Style
-                <select id="scan-region-highlight-style-select">
-                    <option value="default-style">Default style</option>
-                    <option value="example-style-1">Example custom style 1</option>
-                    <option value="example-style-2">Example custom style 2</option>
-                </select>
-            </label>
-            <label>
-                <input id="show-scan-region" type="checkbox"></input>
-                Show scan region canvas
-            </label>
-        </div>
-        <div>
-            <select id="inversion-mode-select">
-                <option value="original">Scan original (dark QR code on bright background)</option>
-                <option value="invert">Scan with inverted colors (bright QR code on dark background)</option>
-                <option value="both">Scan both</option>
-            </select>
-            <br></br>
-        </div>
-        <b>Device has camera: </b>
-        <span id="cam-has-camera"></span>
-        <br></br>
-        <div>
-            <b>Preferred camera:</b>
-            <select id="cam-list">
-                <option value="environment" selected>Environment Facing (default)</option>
-                <option value="user">User Facing</option>
-            </select>
-        </div>
-        <b>Camera has flash: </b>
-        <span id="cam-has-flash"></span>
-        <div>
-            <button id="flash-toggle">📸 Flash: <span id="flash-state">off</span></button>
-        </div>
-        <br></br>
-        <b>Detected QR code: </b>
-        <span id="cam-qr-result">None</span>
-        <br></br>
-        <b>Last detected at: </b>
-        <span id="cam-qr-result-timestamp"></span>
-        <br></br>
-        <button id="start-button">Start</button>
-        <button id="stop-button">Stop</button>
-        <hr></hr>
+    const [scanResultWebCam, setScanResultWebCam] = useState('no result');
+    const [listOfChicken, setListOfChicken] = useState({ chicken: [] })
 
-        <h1>Scan from File:</h1>
-        <input type="file" id="file-selector">
-            <b>Detected QR code: </b>
-            <span id="file-qr-result">None</span>
-        </input>
+    useEffect(() => {
+        getListOfChickens().then(response => {
+            setListOfChicken({
+                chicken: response
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [])
+
+    function filterChickenByQr(qrCode) {
+        getChickenByQr(qrCode).then((response) => console.log(response))
+        setListOfChicken({
+            chicken: listOfChicken.chicken.filter((el) => el.qrCode !== scanResultWebCam)
+        })
+    }
+
+
+    return <>
+        <button onClick={filterChickenByQr} class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" >PRESS</button>
+
+        <h3>Qr Code Scan by Web Cam</h3>
+        <QrReader
+            scanDelay={300}
+            videoStyle={{
+                width: '50%',
+                height: '50%',
+                border: '5px solid red'
+            }}
+            onResult={(result, error) => {
+                if (!!result) {
+                    setScanResultWebCam(result?.text);
+                }
+                if (!!error) {
+                    console.info(error);
+                }
+            }}
+            constraints={{ facingmode: 'environment' }}
+        />
+
+        <h3>Scanned By WebCam Code: {scanResultWebCam}</h3>
     </>
 }

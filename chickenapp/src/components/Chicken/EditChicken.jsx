@@ -15,6 +15,7 @@ export const EditChicken = () => {
         calorieAte: ''
     })
     const { id } = useParams();
+    console.log(id)
     useEffect(() => {
         getChickenById(id).then(response => {
             setEditChicken({

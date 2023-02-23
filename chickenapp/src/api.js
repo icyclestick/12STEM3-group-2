@@ -71,3 +71,12 @@ export const generateQrCode = async (createdChicken, setImageUrl) => {
     console.log(error);
   }
 };
+
+export const getChickenByQr = async (qrCode) => {
+  try {
+    const response = await axios.get(`chicken`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
