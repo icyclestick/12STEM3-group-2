@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 import { getChickenByTag } from "../api"
-import { useNavigate } from 'react-router';
 
 export const Scan = () => {
 
     const [scanResultWebCam, setScanResultWebCam] = useState('no QR Code found');
-    const navigate = useNavigate();
 
     // scan retrieve chicken
     // then go to editChicken
+    // navigate(`/chicken/update/${response.data}`, { replace: true })
+
+
+
 
     function filterChickenByQr(tag) {
-        getChickenByTag(tag).then((response) => navigate(`/chicken/update/${response.data}`, { replace: true }))
+        getChickenByTag(tag).then((response) => {
+            const protocol = window.location.protocol;
+            // const domain = window.location.hostname;
+            // const port = window.location.port;
+
+            const full = `${protocol}/chicken/update/${response.data}`
+
+            window.location.href = full
+        })
     }
 
 

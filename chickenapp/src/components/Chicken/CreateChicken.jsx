@@ -15,7 +15,7 @@ export const CreateChicken = () => {
         type: '',
         initWeight: '',
         finalWeight: '',
-        date: moment().toDate('MMMM Do YYYY, h:mm:ss a'),
+        date: moment(new Date()).format("YYYY-MM-DD"),
         users: [],
         calorieAte: '',
         qrCode: ''

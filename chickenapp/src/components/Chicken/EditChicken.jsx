@@ -15,6 +15,9 @@ export const EditChicken = () => {
         calorieAte: ''
     })
     const { id } = useParams();
+
+    const [firstLoad, setFirstLoad] = useState(true)
+
     console.log(id)
     useEffect(() => {
         getChickenById(id).then(response => {
@@ -33,6 +36,16 @@ export const EditChicken = () => {
                 console.log(error)
             })
     }, [id])
+
+    // useEffect(() => {
+    //     if (firstLoad) {
+
+    //         setFirstLoad(false)
+    //     }
+    // }, [])
+
+    // window.location.reload()
+
     function handleChange(event) {
         const { name, value } = event.target
         setEditChicken(prev => {
