@@ -46,6 +46,12 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error " + err));
 });
 
+router.route("/tag/:tag").get((req, res) => {
+  Chicken.findOne(req.body.tag)
+    .then((chicken) => res.json(chicken.id))
+    .catch((err) => res.status(400).json("Error " + err));
+});
+
 router.route("/update/:id").post((req, res) => {
   Chicken.findById(req.params.id)
     .then((chicken) => {

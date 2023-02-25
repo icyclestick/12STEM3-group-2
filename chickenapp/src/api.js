@@ -72,9 +72,10 @@ export const generateQrCode = async (createdChicken, setImageUrl) => {
   }
 };
 
-export const getChickenByQr = async (qrCode) => {
+export const getChickenByTag = async (tag) => {
   try {
-    const response = await axios.get(`chicken`);
+    const response = await axios.get(`chicken/tag/${tag}`);
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

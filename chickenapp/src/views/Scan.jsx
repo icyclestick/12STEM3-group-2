@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
-import { getListOfChickens } from "../api"
-import { getChickenByQr } from "../api"
+import { getChickenByTag } from "../api"
+import { useNavigate } from 'react-router';
 
 export const Scan = () => {
 
-    const [scanResultWebCam, setScanResultWebCam] = useState('no result');
-    const [listOfChicken, setListOfChicken] = useState({ chicken: [] })
+    const [scanResultWebCam, setScanResultWebCam] = useState('no QR Code found');
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        getListOfChickens().then(response => {
-            setListOfChicken({
-                chicken: response
-            })
-        }).catch(error => {
-            console.log(error)
-        })
-    }, [])
+    // scan retrieve chicken
+    // then go to editChicken
 
-    function filterChickenByQr(qrCode) {
-        getChickenByQr(qrCode).then((response) => console.log(response))
-        setListOfChicken({
-            chicken: listOfChicken.chicken.filter((el) => el.qrCode !== scanResultWebCam)
-        })
+    function filterChickenByQr(tag) {
+        getChickenByTag(tag).then((response) => navigate(`/chicken/update/${response.data}`, { replace: true }))
     }
 
 
@@ -40,6 +30,7 @@ export const Scan = () => {
             onResult={(result, error) => {
                 if (!!result) {
                     setScanResultWebCam(result?.text);
+                    console.log(result?.text)
                 }
                 if (!!error) {
                     console.info(error);
