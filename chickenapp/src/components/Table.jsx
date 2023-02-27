@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import moment from 'moment'
+
 export const Table = (props) => {
     return <><tbody>
         {props.chickenList.chicken?.map(d => (
@@ -8,7 +10,7 @@ export const Table = (props) => {
                 <td class="py-4 px-6">{d.type}</td>
                 <td class="py-4 px-6">{d.initWeight}</td>
                 <td class="py-4 px-6">{d.finalWeight}</td>
-                <td class="py-4 px-6">{d.date}</td>
+                <td class="py-4 px-6">{moment(d.date).format("MM/DD/YYYY")}</td>
                 <td class="py-4 px-6">{d.calorieAte}</td>
                 <td>
                     <img src={d.qrCode} alt="qrCode" />

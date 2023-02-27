@@ -1,5 +1,12 @@
 const router = require("express").Router();
 let Chicken = require("../models/chicken.model");
+const bodyParser = require("body-parser");
+
+// create application/json parser
+var jsonParser = bodyParser.json();
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.route("/").get((req, res) => {
   Chicken.find()
@@ -47,9 +54,11 @@ router.route("/:id").delete((req, res) => {
 });
 
 router.route("/tag/:tag").get((req, res) => {
-  console.log(req.body.tag);
-  Chicken.find({ tag: req.body.tag })
-    .then((chicken) => res.json(chicken.id))
+  console.log(req.params.tag);
+  Chicken.findOne({ tag: req.params.tag })
+    .then((chicken) => {
+      res.json(chicken.id);
+    })
     .catch((err) => res.status(400).json("Error " + err));
 });
 

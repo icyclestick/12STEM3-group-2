@@ -25,7 +25,7 @@ export const Scan = () => {
             const full = `${protocol}/chicken/update/${response.data}`
             console.log(response.data)
 
-            // window.location.href = full
+            window.location.href = full
         })
     }
 
