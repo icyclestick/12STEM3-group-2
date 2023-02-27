@@ -47,7 +47,8 @@ router.route("/:id").delete((req, res) => {
 });
 
 router.route("/tag/:tag").get((req, res) => {
-  Chicken.findOne(req.body.tag)
+  console.log(req.body.tag);
+  Chicken.find({ tag: req.body.tag })
     .then((chicken) => res.json(chicken.id))
     .catch((err) => res.status(400).json("Error " + err));
 });

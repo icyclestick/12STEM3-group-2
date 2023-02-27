@@ -73,9 +73,10 @@ export const createUserApi = async (user) => {
 // };
 
 export const getChickenByTag = async (tag) => {
+  console.log(tag);
   try {
     const response = await axios.get(`chicken/tag/${tag}`);
-    console.log(response);
+    console.log(response.data);
     return response;
   } catch (error) {
     console.log(error);

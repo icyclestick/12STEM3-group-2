@@ -16,8 +16,6 @@ export const EditChicken = () => {
     })
     const { id } = useParams();
 
-    const [firstLoad, setFirstLoad] = useState(true)
-
     console.log(id)
     useEffect(() => {
         getChickenById(id).then(response => {
