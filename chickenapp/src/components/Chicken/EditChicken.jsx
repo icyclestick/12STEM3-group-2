@@ -75,7 +75,7 @@ export const EditChicken = () => {
             .catch(error => console.log(error))
     }
     return <><div className="form-components">
-        <h3 className="calculator-title">Create Chicken!</h3>
+        <h3 className="calculator-title">Edit Chicken!</h3>
         <form onSubmit={handleSubmit}>
             <label htmlFor="user" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username: </label>
             <select className="form-control" name="user" required value={editChicken.selected} onChange={handleChange} class="px-5 py-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">

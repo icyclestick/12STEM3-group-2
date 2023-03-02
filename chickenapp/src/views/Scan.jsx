@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 import { getChickenByTag } from "../api"
 import "../App.css"
+import ScanOverlay from "../components/ScanOverlay.jsx"
 
 export const Scan = () => {
 
@@ -9,15 +10,13 @@ export const Scan = () => {
 
     // scan retrieve chicken
     // then go to editChicken
+
     // navigate(`/chicken/update/${response.data}`, { replace: true })
-
-
-
 
     function filterChickenByQr() {
         getChickenByTag(scanResultWebCam).then((response) => {
-            console.log(response)
-            console.log(scanResultWebCam)
+            // console.log(response)
+            // console.log(scanResultWebCam)
             const protocol = window.location.protocol;
             // const domain = window.location.hostname;
             // const port = window.location.port;
@@ -29,30 +28,37 @@ export const Scan = () => {
         })
     }
 
+    const handleError = (err) => {
+        console.error(err);
+    };
+
 
     return <>
         <div className="scan-wrapper">
             <h3>Scanned By WebCam Code: {scanResultWebCam}</h3>
             <h3>Qr Code Scan by Web Cam</h3>
-            <button onClick={filterChickenByQr} class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"></button>
+            <button onClick={filterChickenByQr} class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">CONFIRM</button>
             <QrReader
                 className='qr-image-wrapper'
                 scanDelay={300}
                 videoStyle={{
-                    width: '50%',
-                    height: '50%',
+                    width: '25%',
+                    height: '25%',
+                    border: "5px red solid"
                 }}
+                videoContainerStyle={{ border: "5px red solid" }}
                 onResult={(result, error) => {
                     if (!!result) {
                         setScanResultWebCam(result?.text);
                         console.log(result?.text)
-                        // filterChickenByQr(scanResultWebCam)
                     }
                     if (!!error) {
                         console.info(error);
                     }
                 }}
+                onError={handleError}
                 constraints={{ facingmode: 'environment' }}
+                ViewFinder={ScanOverlay}
             />
         </div>
     </>
