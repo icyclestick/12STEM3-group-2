@@ -197,8 +197,11 @@ body{
     }
 
     .scan-wrapper{
-      height: 100vh;
-      width: 100%;
-      border: 5px solid red !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3rem;
+      gap: 2em;
     }
 }
