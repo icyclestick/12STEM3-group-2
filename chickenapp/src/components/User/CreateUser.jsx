@@ -1,5 +1,4 @@
 import { useState } from "react"
-import axios from 'axios'
 import { createUserApi } from '../../api'
 export const CreateUser = () => {
     const [createUser, setCreateUser] = useState({
