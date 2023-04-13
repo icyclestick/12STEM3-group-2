@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d540c9f5-8c88-4351-8129-3e0b3ae3014b/resourceGroups/chickenapp/providers/Microsoft.Web/sites/DietCock",
+    "appService.deploySubpath": "backend"
+}
