@@ -54,6 +54,7 @@ export const deleteChickenApi = async (id) => {
 };
 
 export const createUserApi = async (user) => {
+  console.log(user);
   try {
     const response = await axios.post(`users/add`, user);
     return response.data;

@@ -4,9 +4,29 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import axios from "axios"
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { createUserApi } from "./api";
 
-axios.defaults.baseURL = "http://localhost:5000/"
+export const createOrGetUser = async (response, addUser) => {
+  const decoded = jwt_decode(response.credential);
+
+  const { name, picture, sub } = decoded;
+
+  const user = {
+    id: sub,
+    type: "user",
+    userName: name,
+    image: picture,
+  };
+
+  console.log(user);
+
+  addUser(user);
+  createUserApi(user);
+};
+
+axios.defaults.baseURL = "http://localhost:5000/";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
