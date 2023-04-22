@@ -26,7 +26,8 @@ export const createOrGetUser = async (response, addUser) => {
   createUserApi(user);
 };
 
-axios.defaults.baseURL = "http://localhost:5000/";
+// axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "https://dietcockbackend.azurewebsites.net/";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
