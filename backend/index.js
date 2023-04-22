@@ -2,8 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const serverless = require("serverless-http");
 
 require("dotenv").config();
+
+module.exports.handler = serverless(app);
 
 const app = express();
 const port = process.env.PORT || 5000;
