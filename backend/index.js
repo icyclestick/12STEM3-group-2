@@ -37,3 +37,9 @@ app.use("/users", userRouter);
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+  // dev code
+} else {
+  // production code
+}
