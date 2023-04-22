@@ -27,7 +27,13 @@ export const createOrGetUser = async (response, addUser) => {
 };
 
 // axios.defaults.baseURL = "http://localhost:5000/";
-axios.defaults.baseURL = "https://dietcockbackend.azurewebsites.net/";
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+  axios.defaults.baseURL = "http://localhost:5000/";
+} else {
+  axios.defaults.baseURL = "https://dietcockbackend.azurewebsites.net/";
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
