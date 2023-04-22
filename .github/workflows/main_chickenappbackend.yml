@@ -54,3 +54,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F701108A8C3443C0A0D2589758463514 }}
           package: .
+          working-directory: backend
