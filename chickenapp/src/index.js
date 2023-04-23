@@ -31,7 +31,7 @@ export const createOrGetUser = async (response, addUser) => {
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
   axios.defaults.baseURL = "http://localhost:5000/";
 } else {
-  axios.defaults.baseURL = "chickenappbackend.azurewebsites.net";
+  axios.defaults.baseURL = "https://chickenappbackend.azurewebsites.net/";
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
