@@ -5,8 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { createChicken } from "../../api"
 import '../../App.css'
 import { handleCalculation } from './CalculateCalories';
-import moment, { parseISO } from 'moment'
+import moment from 'moment'
 import QRCode from "qrcode";
+import { parseISO } from "date-fns"
 
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
