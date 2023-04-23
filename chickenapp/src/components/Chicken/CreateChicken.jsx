@@ -24,22 +24,41 @@ export const CreateChicken = () => {
     const [imageUrl, setImageUrl] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/users')
-            .then(response => {
-                if (response.data.length > 0) {
-                    setCreatedChicken({
-                        users: response.data.map(user => user.username),
-                        username: response.data[0].username
-                    })
-                    // setCreatedChicken({
-                    //     users: response.data.map(user => user.username),
-                    //     username: response.data[0].username
-                    // })
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+            axios.get("https://localhost:5000/")
+                .then(response => {
+                    if (response.data.length > 0) {
+                        setCreatedChicken({
+                            users: response.data.map(user => user.username),
+                            username: response.data[0].username
+                        })
+                        // setCreatedChicken({
+                        //     users: response.data.map(user => user.username),
+                        //     username: response.data[0].username
+                        // })
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        } else {
+            axios.get("https://chickenappbackend.azurewebsites.net/")
+                .then(response => {
+                    if (response.data.length > 0) {
+                        setCreatedChicken({
+                            users: response.data.map(user => user.username),
+                            username: response.data[0].username
+                        })
+                        // setCreatedChicken({
+                        //     users: response.data.map(user => user.username),
+                        //     username: response.data[0].username
+                        // })
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
     }, [])
 
     const generateQrCode = async () => {
