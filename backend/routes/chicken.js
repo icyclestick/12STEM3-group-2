@@ -9,6 +9,7 @@ var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.route("/").get((req, res) => {
+  console.log(req.user);
   Chicken.find()
     .then((chicken) => res.json(chicken))
     .catch((err) => res.status(400).json("Error: " + err));
