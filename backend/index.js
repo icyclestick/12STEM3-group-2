@@ -6,11 +6,10 @@ const serverless = require("serverless-http");
 
 require("dotenv").config();
 
-module.exports.handler = serverless(app);
-
 const app = express();
 const port = process.env.PORT || 5000;
 
+module.exports.handler = serverless(app);
 app.use(cors());
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
