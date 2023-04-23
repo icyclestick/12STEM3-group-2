@@ -42,7 +42,7 @@ export const CreateChicken = () => {
                     console.log(error)
                 })
         } else {
-            axios.get("https://chickenappbackend.azurewebsites.net/")
+            axios.get("https://chickenappbackend.azurewebsites.net/users")
                 .then(response => {
                     if (response.data.length > 0) {
                         setCreatedChicken({
