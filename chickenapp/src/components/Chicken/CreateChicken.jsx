@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { createChicken } from "../../api"
 import '../../App.css'
 import { handleCalculation } from './CalculateCalories';
-import moment from 'moment'
+import moment, { parseISO } from 'moment'
 import QRCode from "qrcode";
 
 export const CreateChicken = () => {
@@ -15,7 +15,7 @@ export const CreateChicken = () => {
         type: '',
         initWeight: '',
         finalWeight: '',
-        date: moment(new Date()).format("YYYY-MM-DD"),
+        date: moment(new Date()).format(parseISO("YYYY-MM-DD")),
         users: [],
         calorieAte: '',
         qrCode: ''
