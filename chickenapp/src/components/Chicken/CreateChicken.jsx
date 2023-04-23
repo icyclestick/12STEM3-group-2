@@ -7,7 +7,6 @@ import '../../App.css'
 import { handleCalculation } from './CalculateCalories';
 import moment from 'moment'
 import QRCode from "qrcode";
-import { parseISO } from "date-fns"
 
 export const CreateChicken = () => {
     const [createdChicken, setCreatedChicken] = useState({
@@ -16,7 +15,7 @@ export const CreateChicken = () => {
         type: '',
         initWeight: '',
         finalWeight: '',
-        date: moment(new Date()).format(parseISO("YYYY-MM-DD")),
+        date: moment(new Date()),
         users: [],
         calorieAte: '',
         qrCode: ''
