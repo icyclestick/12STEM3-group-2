@@ -10,7 +10,7 @@ export const Table = (props) => {
                 <td class="py-4 px-6">{d.type}</td>
                 <td class="py-4 px-6">{d.initWeight}</td>
                 <td class="py-4 px-6">{d.finalWeight}</td>
-                <td class="py-4 px-6">{moment(d.date).format("MM/DD/YYYY")}</td>
+                <td class="py-4 px-6">{moment(d.date).format(("MM/DD/YYYY"))}</td>
                 <td class="py-4 px-6">{d.calorieAte}</td>
                 <td>
                     <img src={d.qrCode} alt="qrCode" />
